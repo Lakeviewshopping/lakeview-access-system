@@ -4,107 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakeview Access</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #333;
-        }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #5cb85c;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #4cae4c;
-        }
-        #assignments, #notebook {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-
-<div class="container">
-    <h1>Lakeview Access</h1>
-
-    <h2>Assignments</h2>
-    <form id="assignmentForm">
-        <input type="text" id="assignmentName" placeholder="Assignment Name" required>
-        <textarea id="assignmentDetails" placeholder="Assignment Details" required></textarea>
-        <button type="submit">Add Assignment</button>
-    </form>
-    <div id="assignments"></div>
-
-    <h2>Track Time</h2>
-    <form id="timeTrackingForm">
-        <input type="text" id="roleName" placeholder="Role Name" required>
-        <input type="number" id="hoursWorked" placeholder="Hours Worked" required>
-        <button type="submit">Track Time</button>
-    </form>
-
-    <h2>Member Notebook</h2>
-    <form id="notebookForm">
-        <input type="text" id="memberName" placeholder="Member Name" required>
-        <textarea id="notes" placeholder="Notes" required></textarea>
-        <button type="submit">Add Note</button>
-    </form>
-    <div id="notebook"></div>
-</div>
-
-<script>
-    // Handle Assignments
-    document.getElementById('assignmentForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('assignmentName').value;
-        const details = document.getElementById('assignmentDetails').value;
-        const assignmentsDiv = document.getElementById('assignments');
-        assignmentsDiv.innerHTML += `<p><strong>${name}:</strong> ${details}</p>`;
-        this.reset();
-    });
-
-    // Handle Time Tracking
-    document.getElementById('timeTrackingForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const role = document.getElementById('roleName').value;
-        const hours = document.getElementById('hoursWorked').value;
-        alert(`Tracked ${hours} hours for ${role}`);
-        this.reset();
-    });
-
-    // Handle Notebook Entries
-    document.getElementById('notebookForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const member = document.getElementById('memberName').value;
-        const notes = document.getElementById('notes').value;
-        const notebookDiv = document.getElementById('notebook');
-        notebookDiv.innerHTML += `<p><strong>${member}:</strong> ${notes}</p>`;
-        this.reset();
-    });
-</script>
-
+    <header>
+        <img src="path_to_your_logo.png" alt="Lakeview Access Logo" class="logo">
+        <h1>Lakeview Access</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Add Assignment</h2>
+            <form id="assignment-form">
+                <input type="text" id="assignment-title" placeholder="Title" required>
+                <textarea id="assignment-description" placeholder="Description" required></textarea>
+                <input type="datetime-local" id="assignment-due" required>
+                <button type="submit">Add Assignment</button>
+            </form>
+        </section>
+        <section>
+            <h2>Assignments</h2>
+            <ul id="assignment-list"></ul>
+        </section>
+        <section>
+            <h2>User Role Management</h2>
+            <form id="role-form">
+                <input type="number" id="manage-user-id" placeholder="User ID" required>
+                <label for="is-site-admin">Site Admin:</label>
+                <select id="is-site-admin">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                <button type="submit">Update Role</button>
+            </form>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
 </body>
 </html>
