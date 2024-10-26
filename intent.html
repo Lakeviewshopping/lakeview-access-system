@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakeview Access</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <img src="path_to_your_logo.png" alt="Lakeview Access Logo" class="logo">
+        <h1>Lakeview Access</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Add Assignment</h2>
+            <form id="assignment-form">
+                <input type="text" id="assignment-title" placeholder="Title" required>
+                <textarea id="assignment-description" placeholder="Description" required></textarea>
+                <input type="datetime-local" id="assignment-due" required>
+                <button type="submit">Add Assignment</button>
+            </form>
+        </section>
+        <section>
+            <h2>Assignments</h2>
+            <ul id="assignment-list"></ul>
+        </section>
+        <section>
+            <h2>User Role Management</h2>
+            <form id="role-form">
+                <input type="number" id="manage-user-id" placeholder="User ID" required>
+                <label for="is-site-admin">Site Admin:</label>
+                <select id="is-site-admin">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                <button type="submit">Update Role</button>
+            </form>
+        </section>
+    </main>
+    <script src="/static/script.js"></script>
+</body>
+</html>
